@@ -20,3 +20,4 @@ Time Commitment: Each group member is expected to work for approximately 4 hours
 Conflict Resolution: Disagreements should be presented during the weekly team meeting in a constructive manner. If possible, the group will try to find a solution for however long is reasonable before communicating with the TA.
 
 Teague Mitchell
+Purvang Dada
