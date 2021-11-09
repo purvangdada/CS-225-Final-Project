@@ -18,3 +18,5 @@ Work Distribution: The team will decide together the distribution of deliverable
 Time Commitment: Each group member is expected to work for approximately 4 hours each work as necessary. If a deliverable is particularly easy or difficult, this should be presented to the group so that the workload can be shared evenly. Time conflicts or difficulties should be discussed during the weekly team meeting.
 
 Conflict Resolution: Disagreements should be presented during the weekly team meeting in a constructive manner. If possible, the group will try to find a solution for however long is reasonable before communicating with the TA.
+
+Teague Mitchell
