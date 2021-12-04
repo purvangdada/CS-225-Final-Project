@@ -1,4 +1,3 @@
-#pragma once
 #include "edge.h"
 
 namespace flightMaps{
