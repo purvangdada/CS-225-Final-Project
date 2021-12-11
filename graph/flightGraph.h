@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
+#include <unordered_map>
 #include "node.h"
 #include "edge.h"
 
