@@ -50,6 +50,7 @@ void FlightGraph::parseRoute(vector<string> line) {
     int destination = atoi(line[ROUTE_DESTINATION].c_str());
     double distance = findDistance(source, destination);
     Edge route(source, destination, distance);
+    
 
     // if the source airport has less than one outgoing route to destination, add it to that airports routes???
     // Basically makes sure that there isn't already a same route

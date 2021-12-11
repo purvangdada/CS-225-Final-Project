@@ -14,7 +14,9 @@ class FlightGraph {
         FlightGraph();
     private:
         // Holds the airports where id is the key and the airport is the value
-        std::map<int, Node> airports;
+        // using unordered_map and vector of edges to simulate hash table
+        std::unordered_map<int, Node> airports;
+        std::unordered_map<int, std::vector<Edge>> edges;
 
         // TODO: add parsing 
         double findDistance(int source, int destination) const; 
