@@ -58,3 +58,33 @@ void FlightGraph::parseRoute(vector<string> line) {
         airports[source].addRoute(destination, route);
     }
 }
+
+vector<int> BFS(int start, int end){
+    vector<bool> visited(airports.size());
+    
+    for (unsigned i = 0; i < airports.size(); i++) {
+        visited[i] = false;
+    }
+
+    queue<int> airportQueue;    //  queue 
+    vector<int> BFSOrder;  //  order of airports visited during BFS
+    airportQueue.push(start);   //  enqueue first airport
+    int current = start;    //  setting current to first airport
+    //  BFS implementation
+    while (!airportQueue.empty()) {
+        current = airportQueue.front();
+        visited[current] = true;
+        BFSOrder.push(current);
+        if (current == end){
+            break;
+        }
+        for (auto it = edges[current].begin(); it != edges[current].end(); it++) {    //  search all departures from current airport
+            if (!visited[it.getDestination()]) {  // if next airport has not been visited
+                airportQueue.push(it.getDestination());   //  enqueue the next airport
+            }
+        }
+        airportQueue.pop(); // pop it off from the queue once traversed
+    }
+
+    return BFSOrder;
+}
