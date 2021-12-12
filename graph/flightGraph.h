@@ -18,6 +18,8 @@ class FlightGraph {
         // using unordered_map and vector of edges to simulate hash table
         std::unordered_map<int, Node> airports;
         std::unordered_map<int, std::vector<Edge>> edges;
+        // this last map is USED ONLY FOR GRAPH COLORING, stores all the edges a node is the destination of
+        std::unordered_map<int, std::vector<Edge>> edgesbydest;
 
         // TODO: add parsing 
         double findDistance(int source, int destination) const; 
