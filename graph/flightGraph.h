@@ -7,12 +7,13 @@
 #include <cstring>
 #include <cstdlib>
 #include <unordered_map>
+#include <fstream>
 #include "node.h"
 #include "edge.h"
 
 class FlightGraph {
     public:
-        FlightGraph();
+        FlightGraph(const string &airportData, const string &routeData);
     private:
         // Holds the airports where id is the key and the airport is the value
         // using unordered_map and vector of edges to simulate hash table
@@ -30,12 +31,22 @@ class FlightGraph {
         // These constants are for where in line the values are
         const int AIRPORT_ID = 0;
         const int AIRPORT_NAME = 1;
-        const int AIRPORT_LONGITUDE = 2;
-        const int AIRPORT_LATITUDE = 3;
+        const int AIRPORT_LONGITUDE = 6;
+        const int AIRPORT_LATITUDE = 7;
         void parseAirport(std::vector<std::string> line);
 
-        const int ROUTE_SOURCE = 0;
-        const int ROUTE_DESTINATION = 1;
+        const int ROUTE_SOURCE = 3;
+        const int ROUTE_DESTINATION = 5;
         void parseRoute(std::vector<std::string> line);
         vector<int> BFT(int start);
+
+        // Converts one line of csv into a vector of strings to be used in functions
+        vector<std::string> parseLine(const string &line);
+        std::string airportData_;
+        std::string routeData_;
+
+        // Initialize function and helpers fill in airport and edge maps
+        void initialize();
+        void initializeAirports();
+        void initializeRoutes();
 };
