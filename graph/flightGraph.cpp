@@ -60,16 +60,16 @@ void FlightGraph::parseRoute(vector<string> line) {
 }
 
 vector<int> BFT(int start){
-    vector<bool> visited(airports.size());
-    set<int> unvisited;
+    vector<bool> visited(airports.size()); // to keep track of visited nodes
+    set<int> unvisited; // to keep track of completely disconnected nodes
 
-    for (unsigned i = 0; i < airports.size(); i++) {
+    for (unsigned i = 0; i < airports.size(); i++) { // set all nodes to non visted yet
         visited[i] = false;
         unvisited.insert(i);
     }
 
-    queue<int> airportQueue;    
-    vector<int> BFSOrder; 
+    queue<int> airportQueue; // queue to implement bfs 
+    vector<int> BFSOrder; // vector to return
     airportQueue.push(start);  
     int current = start;    
     //  BFS implementation
