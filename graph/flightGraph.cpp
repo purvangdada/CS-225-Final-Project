@@ -59,32 +59,37 @@ void FlightGraph::parseRoute(vector<string> line) {
     }
 }
 
-vector<int> BFS(int start, int end){
+vector<int> BFT(int start){
     vector<bool> visited(airports.size());
-    
+    set<int> unvisited;
+
     for (unsigned i = 0; i < airports.size(); i++) {
         visited[i] = false;
+        unvisited.insert(i);
     }
 
-    queue<int> airportQueue;    //  queue 
-    vector<int> BFSOrder;  //  order of airports visited during BFS
-    airportQueue.push(start);   //  enqueue first airport
-    int current = start;    //  setting current to first airport
+    queue<int> airportQueue;    
+    vector<int> BFSOrder; 
+    airportQueue.push(start);  
+    int current = start;    
     //  BFS implementation
-    while (!airportQueue.empty()) {
+    while (!airportQueue.empty() && !unvisited.empty()) {
+        if(airportQueue.empty() && !unvisited.empty()){ // if explored all elements in connected component, fetch node from other connected component
+            int disconnectedNode = *(unvisited.begin());
+            airportQueue.push(disconnectedNode);
+        }
         current = airportQueue.front();
         visited[current] = true;
+        unvisited.erase(current);
         BFSOrder.push(current);
-        if (current == end){
-            break;
-        }
-        for (auto it = edges[current].begin(); it != edges[current].end(); it++) {    //  search all departures from current airport
-            if (!visited[it.getDestination()]) {  // if next airport has not been visited
-                airportQueue.push(it.getDestination());   //  enqueue the next airport
+        for (auto it = edges[current].begin(); it != edges[current].end(); it++) {    
+            if (!visited[it.getDestination()]) {  
+                airportQueue.push(it.getDestination());  
             }
         }
-        airportQueue.pop(); // pop it off from the queue once traversed
+        airportQueue.pop(); 
     }
+
 
     return BFSOrder;
 }
