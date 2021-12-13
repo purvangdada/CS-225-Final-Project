@@ -1,6 +1,13 @@
 #include "flightGraph.h"
 
 using namespace std;
+
+FlightGraph::FlightGraph(const string &airportData, const string &routeData) {
+    airportData_ = airportData;
+    routeData_ = routeData;
+    initialize();
+}
+
 /**
  * Calculate the distance between two airports using the Haversine Formula
  * @param source source airport
@@ -92,4 +99,78 @@ vector<int> BFT(int start){
 
 
     return BFSOrder;
+}
+
+/**
+ * Separates a singular line of CSV into a vector of strings
+ * Removes quotation marks from output
+ * @param line a line of csv
+ * @return the line in a vector form
+ */ 
+vector<string> FlightGraph::parseLine(const string &line) {
+    char temp;
+    bool isQuote = false;
+    string current = "";
+    vector<string> output;
+
+    for (size_t i = 0; i < line.size(); i++) {
+        temp = line[i];
+        if (isQuote == false) {
+            if (temp == ',') {
+                //add a new string to the vector if there is a comma
+                output.push_back(current);
+                current = "";
+            } else if (temp == '"') {
+                isQuote = true;
+            } else {
+                current += temp;
+            }
+        } else {
+            if (temp == '"' && i + 1 < line.size()) {
+                if (line[i+1] == '"') {
+                    current += '"';
+                    i++;
+                } else {
+                    isQuote = false;
+                }
+            } else {
+                current += temp;
+            }
+        }
+    }
+    return output;
+}
+
+/**
+ * Helps the constructor in filling the maps with airports and routes
+ */
+void FlightGraph::initialize() {
+    initializeAirports();
+    initializeRoutes();
+}
+
+/**
+ * Fills map of airports
+ */
+void FlightGraph::initializeAirports() {
+    ifstream infile(airportData_);
+    string temp;
+
+    while(getline(infile, temp)) {
+        vector<string> line = parseLine(temp);
+        parseAirport(line);
+    }
+    infile.close();
+}
+
+
+void FlightGraph::initializeRoutes() {
+    ifstream infile(routeData_);
+    string temp;
+
+    while(getline(infile, temp)) {
+        vector<string> line = parseLine(temp);
+        parseRoute(line);
+    }
+    infile.close();
 }
