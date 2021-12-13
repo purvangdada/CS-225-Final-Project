@@ -114,18 +114,19 @@ vector<string> FlightGraph::parseLine(const string &line) {
     vector<string> output;
 
     for (size_t i = 0; i < line.size(); i++) {
+        temp = line[i];
         if (isQuote == false) {
             if (temp == ',') {
                 //add a new string to the vector if there is a comma
                 output.push_back(current);
                 current = "";
-            } else if (current == '"') {
+            } else if (temp == '"') {
                 isQuote = true;
             } else {
                 current += temp;
             }
         } else {
-            if (current == '"' && i + 1 < line.size()) {
+            if (temp == '"' && i + 1 < line.size()) {
                 if (line[i+1] == '"') {
                     current += '"';
                     i++;
@@ -155,11 +156,11 @@ void FlightGraph::initializeAirports() {
     ifstream infile(airportData_);
     string temp;
 
-    while(getline(inflie, temp)) {
+    while(getline(infile, temp)) {
         vector<string> line = parseLine(temp);
         parseAirport(line);
     }
-    inflie.close();
+    infile.close();
 }
 
 
@@ -171,5 +172,5 @@ void FlightGraph::initializeRoutes() {
         vector<string> line = parseLine(temp);
         parseRoute(line);
     }
-    inflie.close();
+    infile.close();
 }
