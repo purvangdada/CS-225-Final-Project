@@ -60,4 +60,8 @@ CMakeFiles/test_main.dir/lab_inheritance/vector2.cpp.o
  /home/thm2/cs225finalproject/lab_inheritance/vector2.cpp
  /home/thm2/cs225finalproject/lab_inheritance/vector2.h
 CMakeFiles/test_main.dir/test/tests.cpp.o
+ /home/thm2/cs225finalproject/graph/edge.h
+ /home/thm2/cs225finalproject/graph/flightGraph.h
+ /home/thm2/cs225finalproject/graph/node.h
  /home/thm2/cs225finalproject/test/tests.cpp
+ catch/catch.hpp

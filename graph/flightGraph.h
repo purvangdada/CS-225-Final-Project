@@ -14,17 +14,11 @@
 
 class FlightGraph {
     public:
-<<<<<<< HEAD
         FlightGraph(const std::string &airportData, const std::string &routeData);
-=======
-        FlightGraph(const string &airportData, const string &routeData);
-        FlightGraph();
 
         void addAirport(Node airport);
         void addRoute(Edge route);
-    private:
->>>>>>> refs/remotes/origin/main
-        // Holds the airports where id is the key and the airport is the value
+            // Holds the airports where id is the key and the airport is the value
         // using unordered_map and vector of edges to simulate hash table
         std::unordered_map<int, Node> airports;
         std::unordered_map<int, std::vector<Edge>> edges;
