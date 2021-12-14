@@ -37,6 +37,7 @@ class FlightGraph {
 
         const int ROUTE_SOURCE = 3;
         const int ROUTE_DESTINATION = 5;
+        const int ROUTE_CONNECTING = 6;
         void parseRoute(std::vector<std::string> line);
         vector<int> BFT(int start);
 
