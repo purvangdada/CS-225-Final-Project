@@ -154,7 +154,7 @@ std::unordered_map<int, int> graphcoloring(FlightGraph graph) {
 
     }
     // find the valid color value for each node
-    // nodecolorhelper(graph, curnode, colorval);
+    
 
     return colorval;
 }
