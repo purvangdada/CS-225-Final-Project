@@ -23,6 +23,7 @@ TEST_CASE("BFT works") {
         else
             add the current to the set
 
+
     }
     return true;
 }

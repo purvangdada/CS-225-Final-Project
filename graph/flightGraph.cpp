@@ -53,16 +53,18 @@ void FlightGraph::parseAirport(vector<string> line) {
 }
 
 void FlightGraph::parseRoute(vector<string> line) {
-    int source = atoi(line[ROUTE_SOURCE].c_str());
-    int destination = atoi(line[ROUTE_DESTINATION].c_str());
-    double distance = findDistance(source, destination);
-    Edge route(source, destination, distance);
-    
+    if (atoi(line[ROUTE_CONNECTING].c_str()) == 0) {
+        int source = atoi(line[ROUTE_SOURCE].c_str());
+        int destination = atoi(line[ROUTE_DESTINATION].c_str());
+        double distance = findDistance(source, destination);
+        Edge route(source, destination, distance);
+        
 
-    // if the source airport has less than one outgoing route to destination, add it to that airports routes???
-    // Basically makes sure that there isn't already a same route
-    if (airports[source].getOutgoing().count(destination) < 1) {
-        airports[source].addRoute(destination, route);
+        // if the source airport has less than one outgoing route to destination, add it to that airports routes???
+        // Basically makes sure that there isn't already a same route
+        if (airports[source].getOutgoing().count(destination) < 1) {
+            airports[source].addRoute(destination, route);
+        }
     }
 }
 
