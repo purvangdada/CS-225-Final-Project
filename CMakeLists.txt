@@ -19,3 +19,49 @@ endif()
 project(Airport VERSION 1.0)
 
 add_subdirectory(graph)
+add_subdirectory(lab_inheritance)
+
+add_compile_options(-std=c++11)
+
+# Add header files
+file(GLOB INCLUDES "includes/*.h")
+
+# Add graph files
+file(GLOB SOURCES "graph/*.cpp")
+
+# Add lab files
+file(GLOB SOURCES "lab_inheritance/*.cpp")
+
+# Add testing sources
+file(GLOB TEST_SOURCES "test/*.cpp")
+
+# Add library interface for our files
+add_library(MainLib ${SOURCES} ${INCLUDES})
+
+# Link
+target_include_directories(MainLib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_include_directories(MainLib PUBLIC "graph/include" "lab_inheritance/include")
+
+link_directories("../graph" "../lab_inheritance")
+target_link_libraries(MainLib GraphLib LabLib)
+
+# Add the executable
+add_executable(draw drawandalgorithms.cpp)
+target_link_libraries(draw MainLib)
+
+target_include_directories(draw PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+
+# Add Catch2
+Include(FetchContent)
+
+FetchContent_Declare(
+    Catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG v2.13.1
+)
+
+FetchContent_MakeAvailable(Catch2)
+add_executable(test_main ${SOURCES} ${TEST_SOURCES})
+target_link_libraries(test_main MainLib Catch2::Catch2)

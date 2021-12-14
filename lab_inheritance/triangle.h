@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include "PNG.h"
+#include "HSLAPixel.h"
 #include "shape.h"
 
 /**

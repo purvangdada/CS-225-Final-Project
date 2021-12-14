@@ -5,8 +5,13 @@
 
 #pragma once
 
+#include "PNG.h"
+#include "HSLAPixel.h"
 #include "drawable.h"
 #include "vector2.h"
+
+using cs225::PNG;
+using cs225::HSLAPixel;
 
 /**
  * An abstract base class that represents a Shape which has an area,

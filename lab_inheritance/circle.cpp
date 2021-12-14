@@ -9,8 +9,6 @@
 #include <cstdio>
 #include <cmath>
 
-using cs225::HSLAPixel;
-using cs225::PNG;
 
 const double PI = 3.141592;
 

@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/draw.dir/drawandalgorithms.cpp.o  -o draw   -L../graph  -L../lab_inheritance  -Wl,-rpath,../graph:../lab_inheritance libMainLib.a graph/libGraphLib.a lab_inheritance/libLabLib.a 

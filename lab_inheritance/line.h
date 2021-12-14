@@ -7,6 +7,8 @@
 
 #include <vector>
 
+#include "PNG.h"
+#include "HSLAPixel.h"
 #include "drawable.h"
 #include "vector2.h"
 

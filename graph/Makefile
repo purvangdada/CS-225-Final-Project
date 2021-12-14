@@ -130,6 +130,75 @@ depend:
 	cd /home/thm2/cs225finalproject && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+graph/CMakeFiles/GraphLib.dir/rule:
+	cd /home/thm2/cs225finalproject && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 graph/CMakeFiles/GraphLib.dir/rule
+.PHONY : graph/CMakeFiles/GraphLib.dir/rule
+
+# Convenience name for target.
+GraphLib: graph/CMakeFiles/GraphLib.dir/rule
+
+.PHONY : GraphLib
+
+# fast build rule for target.
+GraphLib/fast:
+	cd /home/thm2/cs225finalproject && $(MAKE) $(MAKESILENT) -f graph/CMakeFiles/GraphLib.dir/build.make graph/CMakeFiles/GraphLib.dir/build
+.PHONY : GraphLib/fast
+
+__/algorithms.o: __/algorithms.cpp.o
+
+.PHONY : __/algorithms.o
+
+# target to build an object file
+__/algorithms.cpp.o:
+	cd /home/thm2/cs225finalproject && $(MAKE) $(MAKESILENT) -f graph/CMakeFiles/GraphLib.dir/build.make graph/CMakeFiles/GraphLib.dir/__/algorithms.cpp.o
+.PHONY : __/algorithms.cpp.o
+
+__/algorithms.i: __/algorithms.cpp.i
+
+.PHONY : __/algorithms.i
+
+# target to preprocess a source file
+__/algorithms.cpp.i:
+	cd /home/thm2/cs225finalproject && $(MAKE) $(MAKESILENT) -f graph/CMakeFiles/GraphLib.dir/build.make graph/CMakeFiles/GraphLib.dir/__/algorithms.cpp.i
+.PHONY : __/algorithms.cpp.i
+
+__/algorithms.s: __/algorithms.cpp.s
+
+.PHONY : __/algorithms.s
+
+# target to generate assembly for a file
+__/algorithms.cpp.s:
+	cd /home/thm2/cs225finalproject && $(MAKE) $(MAKESILENT) -f graph/CMakeFiles/GraphLib.dir/build.make graph/CMakeFiles/GraphLib.dir/__/algorithms.cpp.s
+.PHONY : __/algorithms.cpp.s
+
+__/drawandalgorithms.o: __/drawandalgorithms.cpp.o
+
+.PHONY : __/drawandalgorithms.o
+
+# target to build an object file
+__/drawandalgorithms.cpp.o:
+	cd /home/thm2/cs225finalproject && $(MAKE) $(MAKESILENT) -f graph/CMakeFiles/GraphLib.dir/build.make graph/CMakeFiles/GraphLib.dir/__/drawandalgorithms.cpp.o
+.PHONY : __/drawandalgorithms.cpp.o
+
+__/drawandalgorithms.i: __/drawandalgorithms.cpp.i
+
+.PHONY : __/drawandalgorithms.i
+
+# target to preprocess a source file
+__/drawandalgorithms.cpp.i:
+	cd /home/thm2/cs225finalproject && $(MAKE) $(MAKESILENT) -f graph/CMakeFiles/GraphLib.dir/build.make graph/CMakeFiles/GraphLib.dir/__/drawandalgorithms.cpp.i
+.PHONY : __/drawandalgorithms.cpp.i
+
+__/drawandalgorithms.s: __/drawandalgorithms.cpp.s
+
+.PHONY : __/drawandalgorithms.s
+
+# target to generate assembly for a file
+__/drawandalgorithms.cpp.s:
+	cd /home/thm2/cs225finalproject && $(MAKE) $(MAKESILENT) -f graph/CMakeFiles/GraphLib.dir/build.make graph/CMakeFiles/GraphLib.dir/__/drawandalgorithms.cpp.s
+.PHONY : __/drawandalgorithms.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -138,6 +207,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... GraphLib"
+	@echo "... __/algorithms.o"
+	@echo "... __/algorithms.i"
+	@echo "... __/algorithms.s"
+	@echo "... __/drawandalgorithms.o"
+	@echo "... __/drawandalgorithms.i"
+	@echo "... __/drawandalgorithms.s"
 .PHONY : help
 
 

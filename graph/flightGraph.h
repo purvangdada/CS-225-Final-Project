@@ -8,19 +8,20 @@
 #include <cstdlib>
 #include <unordered_map>
 #include <fstream>
+#include <queue>
 #include "node.h"
 #include "edge.h"
 
 class FlightGraph {
     public:
-        FlightGraph(const string &airportData, const string &routeData);
-    private:
+        FlightGraph(const std::string &airportData, const std::string &routeData);
         // Holds the airports where id is the key and the airport is the value
         // using unordered_map and vector of edges to simulate hash table
         std::unordered_map<int, Node> airports;
         std::unordered_map<int, std::vector<Edge>> edges;
         // this last map is USED ONLY FOR GRAPH COLORING, stores all the edges a node is the destination of
         std::unordered_map<int, std::vector<Edge>> edgesbydest;
+    private:
 
         // TODO: add parsing 
         double findDistance(int source, int destination) const; 
@@ -39,10 +40,10 @@ class FlightGraph {
         const int ROUTE_DESTINATION = 5;
         const int ROUTE_CONNECTING = 6;
         void parseRoute(std::vector<std::string> line);
-        vector<int> BFT(int start);
+        std::vector<int> BFT(int start);
 
         // Converts one line of csv into a vector of strings to be used in functions
-        vector<std::string> parseLine(const string &line);
+        std::vector<std::string> parseLine(const std::string &line);
         std::string airportData_;
         std::string routeData_;
 

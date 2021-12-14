@@ -130,6 +130,395 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named test_main
+
+# Build rule for target.
+test_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_main
+.PHONY : test_main
+
+# fast build rule for target.
+test_main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/build
+.PHONY : test_main/fast
+
+#=============================================================================
+# Target rules for targets named draw
+
+# Build rule for target.
+draw: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 draw
+.PHONY : draw
+
+# fast build rule for target.
+draw/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/draw.dir/build.make CMakeFiles/draw.dir/build
+.PHONY : draw/fast
+
+#=============================================================================
+# Target rules for targets named MainLib
+
+# Build rule for target.
+MainLib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MainLib
+.PHONY : MainLib
+
+# fast build rule for target.
+MainLib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/build
+.PHONY : MainLib/fast
+
+#=============================================================================
+# Target rules for targets named GraphLib
+
+# Build rule for target.
+GraphLib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GraphLib
+.PHONY : GraphLib
+
+# fast build rule for target.
+GraphLib/fast:
+	$(MAKE) $(MAKESILENT) -f graph/CMakeFiles/GraphLib.dir/build.make graph/CMakeFiles/GraphLib.dir/build
+.PHONY : GraphLib/fast
+
+#=============================================================================
+# Target rules for targets named LabLib
+
+# Build rule for target.
+LabLib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LabLib
+.PHONY : LabLib
+
+# fast build rule for target.
+LabLib/fast:
+	$(MAKE) $(MAKESILENT) -f lab_inheritance/CMakeFiles/LabLib.dir/build.make lab_inheritance/CMakeFiles/LabLib.dir/build
+.PHONY : LabLib/fast
+
+drawandalgorithms.o: drawandalgorithms.cpp.o
+
+.PHONY : drawandalgorithms.o
+
+# target to build an object file
+drawandalgorithms.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/draw.dir/build.make CMakeFiles/draw.dir/drawandalgorithms.cpp.o
+.PHONY : drawandalgorithms.cpp.o
+
+drawandalgorithms.i: drawandalgorithms.cpp.i
+
+.PHONY : drawandalgorithms.i
+
+# target to preprocess a source file
+drawandalgorithms.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/draw.dir/build.make CMakeFiles/draw.dir/drawandalgorithms.cpp.i
+.PHONY : drawandalgorithms.cpp.i
+
+drawandalgorithms.s: drawandalgorithms.cpp.s
+
+.PHONY : drawandalgorithms.s
+
+# target to generate assembly for a file
+drawandalgorithms.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/draw.dir/build.make CMakeFiles/draw.dir/drawandalgorithms.cpp.s
+.PHONY : drawandalgorithms.cpp.s
+
+lab_inheritance/HSLAPixel.o: lab_inheritance/HSLAPixel.cpp.o
+
+.PHONY : lab_inheritance/HSLAPixel.o
+
+# target to build an object file
+lab_inheritance/HSLAPixel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/HSLAPixel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/HSLAPixel.cpp.o
+.PHONY : lab_inheritance/HSLAPixel.cpp.o
+
+lab_inheritance/HSLAPixel.i: lab_inheritance/HSLAPixel.cpp.i
+
+.PHONY : lab_inheritance/HSLAPixel.i
+
+# target to preprocess a source file
+lab_inheritance/HSLAPixel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/HSLAPixel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/HSLAPixel.cpp.i
+.PHONY : lab_inheritance/HSLAPixel.cpp.i
+
+lab_inheritance/HSLAPixel.s: lab_inheritance/HSLAPixel.cpp.s
+
+.PHONY : lab_inheritance/HSLAPixel.s
+
+# target to generate assembly for a file
+lab_inheritance/HSLAPixel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/HSLAPixel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/HSLAPixel.cpp.s
+.PHONY : lab_inheritance/HSLAPixel.cpp.s
+
+lab_inheritance/PNG.o: lab_inheritance/PNG.cpp.o
+
+.PHONY : lab_inheritance/PNG.o
+
+# target to build an object file
+lab_inheritance/PNG.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/PNG.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/PNG.cpp.o
+.PHONY : lab_inheritance/PNG.cpp.o
+
+lab_inheritance/PNG.i: lab_inheritance/PNG.cpp.i
+
+.PHONY : lab_inheritance/PNG.i
+
+# target to preprocess a source file
+lab_inheritance/PNG.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/PNG.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/PNG.cpp.i
+.PHONY : lab_inheritance/PNG.cpp.i
+
+lab_inheritance/PNG.s: lab_inheritance/PNG.cpp.s
+
+.PHONY : lab_inheritance/PNG.s
+
+# target to generate assembly for a file
+lab_inheritance/PNG.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/PNG.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/PNG.cpp.s
+.PHONY : lab_inheritance/PNG.cpp.s
+
+lab_inheritance/circle.o: lab_inheritance/circle.cpp.o
+
+.PHONY : lab_inheritance/circle.o
+
+# target to build an object file
+lab_inheritance/circle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/circle.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/circle.cpp.o
+.PHONY : lab_inheritance/circle.cpp.o
+
+lab_inheritance/circle.i: lab_inheritance/circle.cpp.i
+
+.PHONY : lab_inheritance/circle.i
+
+# target to preprocess a source file
+lab_inheritance/circle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/circle.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/circle.cpp.i
+.PHONY : lab_inheritance/circle.cpp.i
+
+lab_inheritance/circle.s: lab_inheritance/circle.cpp.s
+
+.PHONY : lab_inheritance/circle.s
+
+# target to generate assembly for a file
+lab_inheritance/circle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/circle.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/circle.cpp.s
+.PHONY : lab_inheritance/circle.cpp.s
+
+lab_inheritance/line.o: lab_inheritance/line.cpp.o
+
+.PHONY : lab_inheritance/line.o
+
+# target to build an object file
+lab_inheritance/line.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/line.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/line.cpp.o
+.PHONY : lab_inheritance/line.cpp.o
+
+lab_inheritance/line.i: lab_inheritance/line.cpp.i
+
+.PHONY : lab_inheritance/line.i
+
+# target to preprocess a source file
+lab_inheritance/line.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/line.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/line.cpp.i
+.PHONY : lab_inheritance/line.cpp.i
+
+lab_inheritance/line.s: lab_inheritance/line.cpp.s
+
+.PHONY : lab_inheritance/line.s
+
+# target to generate assembly for a file
+lab_inheritance/line.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/line.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/line.cpp.s
+.PHONY : lab_inheritance/line.cpp.s
+
+lab_inheritance/lodepng.o: lab_inheritance/lodepng.cpp.o
+
+.PHONY : lab_inheritance/lodepng.o
+
+# target to build an object file
+lab_inheritance/lodepng.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/lodepng.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/lodepng.cpp.o
+.PHONY : lab_inheritance/lodepng.cpp.o
+
+lab_inheritance/lodepng.i: lab_inheritance/lodepng.cpp.i
+
+.PHONY : lab_inheritance/lodepng.i
+
+# target to preprocess a source file
+lab_inheritance/lodepng.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/lodepng.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/lodepng.cpp.i
+.PHONY : lab_inheritance/lodepng.cpp.i
+
+lab_inheritance/lodepng.s: lab_inheritance/lodepng.cpp.s
+
+.PHONY : lab_inheritance/lodepng.s
+
+# target to generate assembly for a file
+lab_inheritance/lodepng.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/lodepng.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/lodepng.cpp.s
+.PHONY : lab_inheritance/lodepng.cpp.s
+
+lab_inheritance/rectangle.o: lab_inheritance/rectangle.cpp.o
+
+.PHONY : lab_inheritance/rectangle.o
+
+# target to build an object file
+lab_inheritance/rectangle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/rectangle.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/rectangle.cpp.o
+.PHONY : lab_inheritance/rectangle.cpp.o
+
+lab_inheritance/rectangle.i: lab_inheritance/rectangle.cpp.i
+
+.PHONY : lab_inheritance/rectangle.i
+
+# target to preprocess a source file
+lab_inheritance/rectangle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/rectangle.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/rectangle.cpp.i
+.PHONY : lab_inheritance/rectangle.cpp.i
+
+lab_inheritance/rectangle.s: lab_inheritance/rectangle.cpp.s
+
+.PHONY : lab_inheritance/rectangle.s
+
+# target to generate assembly for a file
+lab_inheritance/rectangle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/rectangle.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/rectangle.cpp.s
+.PHONY : lab_inheritance/rectangle.cpp.s
+
+lab_inheritance/shape.o: lab_inheritance/shape.cpp.o
+
+.PHONY : lab_inheritance/shape.o
+
+# target to build an object file
+lab_inheritance/shape.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/shape.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/shape.cpp.o
+.PHONY : lab_inheritance/shape.cpp.o
+
+lab_inheritance/shape.i: lab_inheritance/shape.cpp.i
+
+.PHONY : lab_inheritance/shape.i
+
+# target to preprocess a source file
+lab_inheritance/shape.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/shape.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/shape.cpp.i
+.PHONY : lab_inheritance/shape.cpp.i
+
+lab_inheritance/shape.s: lab_inheritance/shape.cpp.s
+
+.PHONY : lab_inheritance/shape.s
+
+# target to generate assembly for a file
+lab_inheritance/shape.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/shape.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/shape.cpp.s
+.PHONY : lab_inheritance/shape.cpp.s
+
+lab_inheritance/triangle.o: lab_inheritance/triangle.cpp.o
+
+.PHONY : lab_inheritance/triangle.o
+
+# target to build an object file
+lab_inheritance/triangle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/triangle.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/triangle.cpp.o
+.PHONY : lab_inheritance/triangle.cpp.o
+
+lab_inheritance/triangle.i: lab_inheritance/triangle.cpp.i
+
+.PHONY : lab_inheritance/triangle.i
+
+# target to preprocess a source file
+lab_inheritance/triangle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/triangle.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/triangle.cpp.i
+.PHONY : lab_inheritance/triangle.cpp.i
+
+lab_inheritance/triangle.s: lab_inheritance/triangle.cpp.s
+
+.PHONY : lab_inheritance/triangle.s
+
+# target to generate assembly for a file
+lab_inheritance/triangle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/triangle.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/triangle.cpp.s
+.PHONY : lab_inheritance/triangle.cpp.s
+
+lab_inheritance/vector2.o: lab_inheritance/vector2.cpp.o
+
+.PHONY : lab_inheritance/vector2.o
+
+# target to build an object file
+lab_inheritance/vector2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/vector2.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/vector2.cpp.o
+.PHONY : lab_inheritance/vector2.cpp.o
+
+lab_inheritance/vector2.i: lab_inheritance/vector2.cpp.i
+
+.PHONY : lab_inheritance/vector2.i
+
+# target to preprocess a source file
+lab_inheritance/vector2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/vector2.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/vector2.cpp.i
+.PHONY : lab_inheritance/vector2.cpp.i
+
+lab_inheritance/vector2.s: lab_inheritance/vector2.cpp.s
+
+.PHONY : lab_inheritance/vector2.s
+
+# target to generate assembly for a file
+lab_inheritance/vector2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/lab_inheritance/vector2.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainLib.dir/build.make CMakeFiles/MainLib.dir/lab_inheritance/vector2.cpp.s
+.PHONY : lab_inheritance/vector2.cpp.s
+
+test/tests.o: test/tests.cpp.o
+
+.PHONY : test/tests.o
+
+# target to build an object file
+test/tests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/test/tests.cpp.o
+.PHONY : test/tests.cpp.o
+
+test/tests.i: test/tests.cpp.i
+
+.PHONY : test/tests.i
+
+# target to preprocess a source file
+test/tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/test/tests.cpp.i
+.PHONY : test/tests.cpp.i
+
+test/tests.s: test/tests.cpp.s
+
+.PHONY : test/tests.s
+
+# target to generate assembly for a file
+test/tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_main.dir/build.make CMakeFiles/test_main.dir/test/tests.cpp.s
+.PHONY : test/tests.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -138,6 +527,44 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... GraphLib"
+	@echo "... LabLib"
+	@echo "... MainLib"
+	@echo "... draw"
+	@echo "... test_main"
+	@echo "... drawandalgorithms.o"
+	@echo "... drawandalgorithms.i"
+	@echo "... drawandalgorithms.s"
+	@echo "... lab_inheritance/HSLAPixel.o"
+	@echo "... lab_inheritance/HSLAPixel.i"
+	@echo "... lab_inheritance/HSLAPixel.s"
+	@echo "... lab_inheritance/PNG.o"
+	@echo "... lab_inheritance/PNG.i"
+	@echo "... lab_inheritance/PNG.s"
+	@echo "... lab_inheritance/circle.o"
+	@echo "... lab_inheritance/circle.i"
+	@echo "... lab_inheritance/circle.s"
+	@echo "... lab_inheritance/line.o"
+	@echo "... lab_inheritance/line.i"
+	@echo "... lab_inheritance/line.s"
+	@echo "... lab_inheritance/lodepng.o"
+	@echo "... lab_inheritance/lodepng.i"
+	@echo "... lab_inheritance/lodepng.s"
+	@echo "... lab_inheritance/rectangle.o"
+	@echo "... lab_inheritance/rectangle.i"
+	@echo "... lab_inheritance/rectangle.s"
+	@echo "... lab_inheritance/shape.o"
+	@echo "... lab_inheritance/shape.i"
+	@echo "... lab_inheritance/shape.s"
+	@echo "... lab_inheritance/triangle.o"
+	@echo "... lab_inheritance/triangle.i"
+	@echo "... lab_inheritance/triangle.s"
+	@echo "... lab_inheritance/vector2.o"
+	@echo "... lab_inheritance/vector2.i"
+	@echo "... lab_inheritance/vector2.s"
+	@echo "... test/tests.o"
+	@echo "... test/tests.i"
+	@echo "... test/tests.s"
 .PHONY : help
 
 

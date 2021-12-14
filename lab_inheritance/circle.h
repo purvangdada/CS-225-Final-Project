@@ -5,7 +5,12 @@
 
 #pragma once
 
+#include "PNG.h"
+#include "HSLAPixel.h"
 #include "shape.h"
+
+using cs225::PNG;
+using cs225::HSLAPixel;
 
 /**
  * A subclass of Shape that represents a Circle in 2D space

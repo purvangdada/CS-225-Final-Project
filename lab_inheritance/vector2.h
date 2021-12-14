@@ -5,6 +5,9 @@
 
 #pragma once
 
+#include "PNG.h"
+#include "HSLAPixel.h"
+
 /**
  * Represents a 2 dimensional vector
  */

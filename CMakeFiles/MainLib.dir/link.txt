@@ -1,0 +1,2 @@
+/usr/bin/ar qc libMainLib.a  CMakeFiles/MainLib.dir/lab_inheritance/HSLAPixel.cpp.o CMakeFiles/MainLib.dir/lab_inheritance/PNG.cpp.o CMakeFiles/MainLib.dir/lab_inheritance/circle.cpp.o CMakeFiles/MainLib.dir/lab_inheritance/line.cpp.o CMakeFiles/MainLib.dir/lab_inheritance/lodepng.cpp.o CMakeFiles/MainLib.dir/lab_inheritance/rectangle.cpp.o CMakeFiles/MainLib.dir/lab_inheritance/shape.cpp.o CMakeFiles/MainLib.dir/lab_inheritance/triangle.cpp.o CMakeFiles/MainLib.dir/lab_inheritance/vector2.cpp.o
+/usr/bin/ranlib libMainLib.a

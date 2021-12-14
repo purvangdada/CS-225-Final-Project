@@ -1,0 +1,2 @@
+/usr/bin/ar qc libLabLib.a  CMakeFiles/LabLib.dir/__/algorithms.cpp.o CMakeFiles/LabLib.dir/__/drawandalgorithms.cpp.o
+/usr/bin/ranlib libLabLib.a

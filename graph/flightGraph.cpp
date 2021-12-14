@@ -77,8 +77,8 @@ vector<int> FlightGraph::BFT(int start){
         unvisited.insert(i);
     }
 
-    queue<int> airportQueue; // queue to implement bfs 
-    vector<int> BFSOrder; // vector to return
+    std::queue<int> airportQueue; // queue to implement bfs 
+    std::vector<int> BFSOrder; // vector to return
     airportQueue.push(start);  
     int current = start;    
     //  BFS implementation
@@ -90,10 +90,10 @@ vector<int> FlightGraph::BFT(int start){
         current = airportQueue.front();
         visited[current] = true;
         unvisited.erase(current);
-        BFSOrder.push(current);
+        BFSOrder.push_back(current);
         for (auto it = edges[current].begin(); it != edges[current].end(); it++) {    
-            if (!visited[it.getDestination()]) {  
-                airportQueue.push(it.getDestination());  
+            if (!visited[it->getDestination()]) {  
+                airportQueue.push(it->getDestination());  
             }
         }
         airportQueue.pop(); 

@@ -5,7 +5,8 @@
 
 #pragma once
 
-#include "cs225/PNG.h"
+#include "PNG.h"
+#include "HSLAPixel.h"
 
 /**
  * A pure virtual interface class that can draw itself to a canvas

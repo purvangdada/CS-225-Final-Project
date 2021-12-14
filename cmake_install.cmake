@@ -40,6 +40,8 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/thm2/cs225finalproject/graph/cmake_install.cmake")
+  include("/home/thm2/cs225finalproject/lab_inheritance/cmake_install.cmake")
+  include("/home/thm2/cs225finalproject/_deps/catch2-build/cmake_install.cmake")
 
 endif()
 
