@@ -15,6 +15,7 @@
 class FlightGraph {
     public:
         FlightGraph(const std::string &airportData, const std::string &routeData);
+        FlightGraph();
 
         void addAirport(Node airport);
         void addRoute(Edge route);

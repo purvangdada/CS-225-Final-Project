@@ -8,6 +8,10 @@ FlightGraph::FlightGraph(const string &airportData, const string &routeData) {
     initialize();
 }
 
+FlightGraph::FlightGraph() {
+    
+}
+
 /**
  * Calculate the distance between two airports using the Haversine Formula
  * @param source source airport
