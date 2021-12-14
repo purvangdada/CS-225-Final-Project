@@ -6,6 +6,7 @@
 class Edge {
     public:
         // Construct an edge without a weight
+        Edge();
         Edge(int source, int destination);
         
         // Construct an edge with a distance as the weight
@@ -17,7 +18,7 @@ class Edge {
         double getDistance();
         void setDistance(double distance);
 
-        bool operator==(Edge& other) const;
+        bool operator==(const Edge& other) const;
         bool operator<(const Edge& other) const;
     private:
         int source_; //ID of source airport

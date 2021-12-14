@@ -1,4 +1,5 @@
 #include "flightGraph.h"
+#include <set>
 
 using namespace std;
 
@@ -7,6 +8,7 @@ FlightGraph::FlightGraph(const string &airportData, const string &routeData) {
     routeData_ = routeData;
     std::unordered_map<int, Node> airports;
     std::unordered_map<int, std::vector<Edge>> edges;
+    
     std::unordered_map<int, std::vector<Edge>> edgesbydest;
     initialize();
 }
@@ -79,12 +81,14 @@ void FlightGraph::parseRoute(vector<string> line) {
 
 vector<int> FlightGraph::BFT(int start){
     vector<bool> visited(airports.size()); // to keep track of visited nodes
-    set<int> unvisited; // to keep track of completely disconnected nodes
+    set<int> unvisited = {}; // to keep track of completely disconnected nodes
 
     for (unsigned i = 0; i < airports.size(); i++) { // set all nodes to non visted yet
         visited[i] = false;
         unvisited.insert(i);
     }
+
+
 
     std::queue<int> airportQueue; // queue to implement bfs 
     std::vector<int> BFSOrder; // vector to return
