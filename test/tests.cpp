@@ -29,7 +29,10 @@ TEST_CASE("BFT works") {
     f.addEdge(TwoToFive);
     f.addEdge(ThreeToFour);
 
-    vector<int> bft = f.BFT(1);
-    vector<int> expected = {1, 2, 3, 5, 4};
-    REQUIRE(bft == expected);
+    vector<int> bft1 = f.BFT(1);
+    vector<int> bft2 = f.BFT(2);
+    vector<int> expected1 = {1, 2, 3, 5, 4};
+    vetor<int> expected2 = {2, 1, 3, 5, 4};
+    REQUIRE(bft1 == expected1);
+    REQUIRE(bft2 == expected2);
 }
