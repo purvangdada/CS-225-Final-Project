@@ -14,6 +14,10 @@
 class FlightGraph {
     public:
         FlightGraph(const string &airportData, const string &routeData);
+        FlightGraph();
+
+        void addAirport(Node airport);
+        void addRoute(Edge route);
     private:
         // Holds the airports where id is the key and the airport is the value
         // using unordered_map and vector of edges to simulate hash table
@@ -22,7 +26,6 @@ class FlightGraph {
         // this last map is USED ONLY FOR GRAPH COLORING, stores all the edges a node is the destination of
         std::unordered_map<int, std::vector<Edge>> edgesbydest;
 
-        // TODO: add parsing 
         double findDistance(int source, int destination) const; 
         const double RADIUS = 6371000;
 

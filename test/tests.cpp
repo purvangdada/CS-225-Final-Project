@@ -5,25 +5,31 @@
 using namespace std;
 
 TEST_CASE("BFT works") {
-    FlightGraph f("graph/airports.dat", "graph/routes.dat");
-    f.initialize();
-    auto result = f.BFT(0);
-    for(unsigned i = 0; i < result.size(); i++) {
-        cout << result[i];
-        /*if (result[i] == result[i++]) {
+    FlightGraph f();
+    Node airport1(1, "airport1", 5.0, 5.0);
+    Node airport2(2, "airport2", 10.0, 0.0);
+    Node airport3(3, "airport3", 0.0, 0.0);
+    Node airport4(4, "airport4", 3.0, 20.0);
+    Node airport5(5, "airport5", 5.0, 30.0);
+    f.addAirport(airport1);
+    f.addAirport(airport2);
+    f.addAirport(airport3);
+    f.addAirport(airport4);
+    f.addAirport(airport5);
+    Edge OneToTwo(1, 2);
+    Edge TwoToOne(2, 1);
+    Edge ThreeToOne(3, 1);
+    Edge TwoToThree(2, 3);
+    Edge TwoToFive(2, 5);
+    Edge ThreeToFour(3, 4);
+    f.addEdge(OneToTwo);
+    f.addEdge(TwoToOne);
+    f.addEdge(ThreeToOne);
+    f.addEdge(TwoToThree);
+    f.addEdge(TwoToFive);
+    f.addEdge(ThreeToFour);
 
-            return false;
-        }*/
-
-        // each airport only shows up once
-        // every airport is traversed
-        // create a set [airport]
-        check if the airport is already in the set
-            return false
-        else
-            add the current to the set
-
-
-    }
-    return true;
+    vector<int> bft = f.BFT(1);
+    vector<int> expected = {1, 2, 3, 5, 4};
+    REQUIRE(bft == expected);
 }
