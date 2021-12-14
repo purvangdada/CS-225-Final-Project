@@ -34,7 +34,7 @@ using cs225::PNG;
 using cs225::HSLAPixel;
 
 int draw() {
-    FlightGraph graph();
+    FlightGraph graph("graph/airports.dat", "graph/routes.dat");
     PNG canvas;
     std::vector<Drawable*> lines;
     std::vector<Drawable*> circles;
@@ -43,7 +43,7 @@ int draw() {
     std::unordered_map<int, int> nodecol = graphcoloring(graph);
     int colnum = 1;
     for (int i = 1; i <= 14110; i++) {
-        if (colnum < nodecol[i]
+        if (colnum < nodecol[i])
             colnum = nodecol[i];
     }
     std::unordered_map<int, int> nodesize = betweennesscentrality(graph);
@@ -79,7 +79,7 @@ int draw() {
     }
     while (!circles.empty()) {
         circles.back()->draw(&canvas);
-        delete circles.back()
+        delete circles.back();
         circles.pop_back();
     }  
     canvas.writeToFile("graph_drawing.png");

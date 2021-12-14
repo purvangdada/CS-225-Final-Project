@@ -20,7 +20,7 @@
 // that is between the source and destination in the shortest path
 void shortestpathhelper(FlightGraph graph, int sourceid, int destid, std::unordered_map<int, int> & bcval) {
     // initialize priority queue for traveling through the graph
-    std:queue<int> priority;
+    std::queue<int> priority;
     // need map for the distance for each node from the source node
     // and the previous node in its current shortest path to the destination
     std::unordered_map<int, double> dist;
@@ -94,8 +94,8 @@ std::unordered_map betweennesscentrality(FlightGraph graph) {
 // and the highest being the number of total colors used to color the graph
 void nodecolorhelper(FlightGraph graph, int curnode, std::unordered_map<int, int> & colorval) {
     // initialize queue of all neighboring nodes
-    std:queue<int> colorqueue;
-    std:queue<int> tempcolorqueue;
+    std::queue<int> colorqueue;
+    std::queue<int> tempcolorqueue;
     for (int i = 0; i < graph.edges[curnode].size(); i++) {
         colorqueue1.push((graph.edges[curnode])[i].getDestination());
     }
