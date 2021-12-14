@@ -148,9 +148,13 @@ std::unordered_map<int, int> graphcoloring(FlightGraph graph) {
     int curnode;
     //will move through nodes and determine curnode using BFS algorithm written by Purvang
     //code needed here...
+    vector<int> BFTvec = BFT(curnode);
+    for (unsigned i = 0; i < BFTvec.size(); i++) {
+        nodecolorhelper(graph, curnode, colorval);
 
+    }
     // find the valid color value for each node
-    nodecolorhelper(graph, curnode, colorval);
+    // nodecolorhelper(graph, curnode, colorval);
 
     return colorval;
 }
