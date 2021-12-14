@@ -59,5 +59,9 @@ CMakeFiles/test_main.dir/lab_inheritance/vector2.cpp.o: lab_inheritance/PNG.h
 CMakeFiles/test_main.dir/lab_inheritance/vector2.cpp.o: lab_inheritance/vector2.cpp
 CMakeFiles/test_main.dir/lab_inheritance/vector2.cpp.o: lab_inheritance/vector2.h
 
+CMakeFiles/test_main.dir/test/tests.cpp.o: graph/edge.h
+CMakeFiles/test_main.dir/test/tests.cpp.o: graph/flightGraph.h
+CMakeFiles/test_main.dir/test/tests.cpp.o: graph/node.h
 CMakeFiles/test_main.dir/test/tests.cpp.o: test/tests.cpp
+CMakeFiles/test_main.dir/test/tests.cpp.o: catch/catch.hpp
 

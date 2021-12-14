@@ -5,7 +5,16 @@ using namespace std;
 FlightGraph::FlightGraph(const string &airportData, const string &routeData) {
     airportData_ = airportData;
     routeData_ = routeData;
+    std::unordered_map<int, Node> airports;
+    std::unordered_map<int, std::vector<Edge>> edges;
+    std::unordered_map<int, std::vector<Edge>> edgesbydest;
     initialize();
+}
+
+FlightGraph::FlightGraph() {
+    std::unordered_map<int, Node> airports;
+    std::unordered_map<int, std::vector<Edge>> edges;
+    std::unordered_map<int, std::vector<Edge>> edgesbydest;
 }
 
 /**

@@ -1,10 +1,24 @@
+#include <catch/catch.hpp>
 #include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
+#include <cmath>
+#include <queue>
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <unordered_map>
+#include <limits>
+
+#include "../graph/flightGraph.h"
+#include "../graph/node.h"
+#include "../graph/edge.h"
+
 using namespace std;
 
-TEST_CASE("BFT works") {
+TEST_CASE("BFT works", "[BFS]") {
     FlightGraph f();
     Node airport1(1, "airport1", 5.0, 5.0);
     Node airport2(2, "airport2", 10.0, 0.0);
