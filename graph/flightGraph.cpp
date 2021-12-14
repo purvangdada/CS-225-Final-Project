@@ -176,3 +176,11 @@ void FlightGraph::initializeRoutes() {
     }
     infile.close();
 }
+
+void FlightGraph::addAirport(Node airport) {
+    airports.insert(pair<int, Node>(airport.getId(), airport));
+}
+
+void FlightGraph::addRoute(Edge route) {
+    airports.at(route.getSource()).addRoute(route.getDestination(), route);
+}
