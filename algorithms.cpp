@@ -69,8 +69,7 @@ void shortestpathhelper(FlightGraph graph, int sourceid, int destid, std::unorde
 // betweeenness centrality labels each node of a graph
 // by how many shortest paths between an two nodes in the graph
 // go through each node
-void betweennesscentrality() {
-    FlightGraph graph();
+std::unordered_map betweennesscentrality(FlightGraph graph) {
     // initialize each node's betweenness centrality value to zero
     std::unordered_map<int, int> bcval;
     for (int i = 1; i <= 14110; i++) {
@@ -84,7 +83,7 @@ void betweennesscentrality() {
                 shortestpathhelper(graph, i, j, bcval);
         }
     }
-
+    return bcval
 }
 
 // helper function for color graphing
@@ -139,8 +138,7 @@ void nodecolorhelper(FlightGraph graph, int curnode, std::unordered_map<int, int
 // where every adjacent node does not share a color
 // this algorithm hopes to do this with as few colors as possible
 // but that is not guaranteed
-void graphcoloring() {
-    FlightGraph graph();
+std::unordered_map graphcoloring(FlightGraph graph) {
     // initialize color values for every node to zero
     // this is not a valid color value
     std::unordered_map<int, int> colorval;
@@ -153,4 +151,6 @@ void graphcoloring() {
 
     // find the valid color value for each node
     nodecolorhelper(graph, curnode, colorval);
+
+    return colorval;
 }
