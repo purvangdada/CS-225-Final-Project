@@ -66,7 +66,7 @@ void FlightGraph::parseRoute(vector<string> line) {
     }
 }
 
-vector<int> BFT(int start){
+vector<int> FlightGraph::BFT(int start){
     vector<bool> visited(airports.size()); // to keep track of visited nodes
     set<int> unvisited; // to keep track of completely disconnected nodes
 
