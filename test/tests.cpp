@@ -66,8 +66,8 @@ TEST_CASE("Parse Airport, simple") {
     f.parseAirport(line);
     Node expected = Node(1, "airport", -6, 145);
     REQUIRE(f.airports.at(1) == expected);
-    REQUIRE(f.airports.at(1).getLongitude() == -6);
-    REQUIRE(f.airports.at(1).getLatitude() == 145);
+    REQUIRE(f.airports.at(1).getLongitude() == 145);
+    REQUIRE(f.airports.at(1).getLatitude() == -6);
 }
 
 TEST_CASE("Parse Line, simple airport") {
