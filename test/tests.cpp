@@ -69,6 +69,36 @@ TEST_CASE("Parse Airport, simple") {
     REQUIRE(f.airports.at(1).getLatitude() == 145);
 }
 
+TEST_CASE("Parse Line, simple airport") {
+    //1,"airport","Chicago","USA","GKA","AYGA",-6,145,5282,10,"U","Pacific/Port_Moresby","airport","OurAirports"
+    FlightGraph f = FlightGraph();
+    vector<string> line = f.parseLine("1,\"airport\",\"Chicago\",\"USA\",\"GKA\",\"AYGA\",-6,145,5282,10,\"U\",\"Pacific/Port_Moresby\",\"airport\",\"OurAirports\"");
+    vector<string> expected = {"1", "airport", "Chicago", "USA", "GKA", "AYGA", "-6", "145", "5282", "10", "U", "Pacific/Port_Moresby", "airport"};
+    REQUIRE(line == expected);
+}
+
+TEST_CASE("Parse Line, simple route") {
+    //2B,410,AER,2965,KZN,2990,,1,CR2
+    FlightGraph f = FlightGraph();
+    vector<string> line = f.parseLine("2B,410,AER,2965,KZN,2990,,1,CR2");
+    vector<string> expected = {"2B", "410", "AER", "2965", "KZN", "2990", "", "1"};
+    REQUIRE(line == expected);
+}
+
+TEST_CASE("Parse Line, comma in name") {
+    //1,"airport","Chicago","USA","GKA","AYGA",-6,145,5282,10,"U","Pacific/Port_Moresby","airport","OurAirports"
+    FlightGraph f = FlightGraph();
+    vector<string> line = f.parseLine("1,\"air,port\",\"Chicago\",\"USA\",\"GKA\",\"AYGA\",-6,145,5282,10,\"U\",\"Pacific/Port_Moresby\",\"airport\",\"OurAirports\"");
+    vector<string> expected = {"1", "air,port", "Chicago", "USA", "GKA", "AYGA", "-6", "145", "5282", "10", "U", "Pacific/Port_Moresby", "airport"};
+    REQUIRE(line == expected);
+}
+
+TEST_CASE("Reading File, short") {
+    FlightGraph graph = FlightGraph("graph/shortairports.dat", "graph/shortroutes.dat");
+    REQUIRE(graph.airports.size() == 5);
+    REQUIRE(graph.airports.at(2).getOutgoing().size() == 3);
+}
+
 TEST_CASE("BFT works") {
     FlightGraph f = FlightGraph();
     Node airport1(1, "airport1", 5.0, 5.0);

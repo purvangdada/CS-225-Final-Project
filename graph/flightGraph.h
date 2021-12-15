@@ -31,27 +31,22 @@ class FlightGraph {
         // line is a vector of all the information we need from one line of CSV
         void parseAirport(std::vector<std::string> line);
         void parseRoute(std::vector<std::string> line);
+        // Converts one line of csv into a vector of strings to be used in functions
+        std::vector<std::string> parseLine(const std::string &line);
     private:
 
         double findDistance(int source, int destination) const; 
         const double RADIUS = 6371000;
 
-
-        
         // These constants are for where in line the values are
         const int AIRPORT_ID = 0;
         const int AIRPORT_NAME = 1;
         const int AIRPORT_LONGITUDE = 6;
         const int AIRPORT_LATITUDE = 7;
-        
         const int ROUTE_SOURCE = 3;
         const int ROUTE_DESTINATION = 5;
         const int ROUTE_CONNECTING = 7;
         
-        
-
-        // Converts one line of csv into a vector of strings to be used in functions
-        std::vector<std::string> parseLine(const std::string &line);
         std::string airportData_;
         std::string routeData_;
 
