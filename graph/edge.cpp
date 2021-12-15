@@ -1,6 +1,6 @@
 #include "edge.h"
 
-Edge::Edge() {
+Edge::Edge() { //constrcutor
     source_ = -1;
     destination_ = -1;
 }

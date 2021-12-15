@@ -1,6 +1,6 @@
 # =================== SETTINGS ===================
 EXENAME := finalProject
-TEST_NAME := test
+TEST_NAME := run_tests
 
 CXX			:=	clang++
 CXXFLAGS	:=	$(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic -Iheaders
@@ -25,10 +25,9 @@ $(EXENAME): build/main.o build/graph.o build/node.o build/edge.o
 	$(LD) $^ $(LDFLAGS) -o $@
 
 $(TEST_NAME): build/tests.o build/graph.o build/node.o build/edge.o
-	$(LD) $^ $(LDFLAGS) -o test
+	$(LD) $^ $(LDFLAGS) -o $@
 
-build/tests.o: test/tests.cpp graph/flightGraph.h graph/node.h graph/edge.o
-	$(make-build-dir)
+build/tests.o: catch/catchmain.cpp test/tests.cpp graph/flightGraph.h graph/node.h graph/edge.o 
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 build/main.o: graph/main.cpp graph/flightGraph.h graph/node.h graph/edge.h
