@@ -7,6 +7,6 @@ Graph Algorithms: The graph algorithms we plan to use for the project include Be
 Timeline: The first thing we must do is acquire and process our data set so that we can access and manipulate it with our algorithms. It is our goal to have done this by November 20. It is then our goal to have successfully implemented a BFS traversal of this data by November 29, so it is done before the mid-project check-in, and also have gotten started on our algorithms at this point, at least having a solid understanding of how we will implement them. We will hope to then implement our betweenness centrality and graph coloring algorithms over the next two weeks, doing whichever we determine to be simpler first so that we have more time to tackle the more complex algorithm.
 
 RESULTS:
-We were able to implement all the algorithms as we planned, but failed to test them on our own. However, we are confident that these algorithms would work on the provided datasets if executed with the suitable makefiles.
-These include a graph, the BFS traversal, a betweenness centrality.
-We feel like we were able to implement these algorithms, but failed to make the suitable makefile. 
+We were able to implement all the algorithms as we planned, but failed to test them on our own. The makefile does compile the code, however, we do not have the suitable test cases to test our algorithms.
+The algorithms implemented include a graph, the BFS traversal, a betweenness centrality.
+
