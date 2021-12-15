@@ -1,0 +1,5 @@
+1,"airport1","Chicago","USA","GKA","AYGA",10,10,5282,10,"U","Pacific/Port_Moresby","airport","OurAirports"
+2,"airport2","Beijing","China","GKA","AYGA",20,30,5282,10,"U","Pacific/Port_Moresby","airport","OurAirports"
+3,"airport3","Seattle","USA","GKA","AYGA",0,30,5282,10,"U","Pacific/Port_Moresby","airport","OurAirports"
+4,"airport4","Los Angeles","USA","GKA","AYGA",-30,70,5282,10,"U","Pacific/Port_Moresby","airport","OurAirports"
+5,"airport5","Houston","USA","GKA","AYGA",-40,20,5282,10,"U","Pacific/Port_Moresby","airport","OurAirports"
