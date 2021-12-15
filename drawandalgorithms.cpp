@@ -59,10 +59,10 @@ int main() {
         for (auto it = (graph.edges[i]).begin(); it != (graph.edges[i]).end(); it++) {    
             int start = it->getSource();
             int end =   it->getDestination();
-            int startx = int(10*(graph.airports[start]).getLongitude() + 1800);
-            int starty = int(10*(graph.airports[start]).getLatitude() + 900);
-            int endx = int(10*(graph.airports[end]).getLongitude());
-            int endy = int(10*(graph.airports[end]).getLatitude());
+            int startx = int(10*(graph.airports[start].getLongitude()) + 1800);
+            int starty = int(10*(graph.airports[start].getLatitude()) + 900);
+            int endx = int(10*(graph.airports[end].getLongitude()));
+            int endy = int(10*(graph.airports[end].getLatitude()));
             Drawable* line = new Line(Vector2(startx, starty), Vector2(endx, endy), linecolor);
             lines.push_back(line);
             std::cout << "running betweeness" << std::endl;
@@ -72,8 +72,8 @@ int main() {
     for (int i = 1; i <= 14110; i++) {
         if ((graph.airports).find(i) == (graph.airports).end())
             continue;
-        int centerx = int(10*(graph.airports[i]).getLongitude() + 1800);
-        int centery = int(10*(graph.airports[i]).getLatitude() + 900);
+        int centerx = int(10*(graph.airports[i].getLongitude()) + 1800);
+        int centery = int(10*(graph.airports[i].getLatitude()) + 900);
         int radius = 2*nodesize[i];
         double huediff = 360 / (colnum + 1);
         int fac = (nodecol[i]/2) - 1;
@@ -87,6 +87,7 @@ int main() {
     }
     std::cout << "Reached line " << __LINE__ << std::endl;
     while (!lines.empty()) {
+        std::cout << "Reached line " << __LINE__ << std::endl;
         lines.back()->draw(&canvas);
         delete lines.back();
         lines.pop_back();

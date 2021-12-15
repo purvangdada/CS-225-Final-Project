@@ -87,15 +87,15 @@ vector<int> FlightGraph::BFT(int start){
         visited[i] = false;
         unvisited.insert(i);
     }
-
-
+    
+    std::cout << "Reached line " << __LINE__ << std::endl;
 
     std::queue<int> airportQueue; // queue to implement bfs 
     std::vector<int> BFSOrder; // vector to return
     airportQueue.push(start);  
     int current = start;    
     //  BFS implementation
-    while (!airportQueue.empty() && !unvisited.empty()) {
+    while (!airportQueue.empty() || !unvisited.empty()) {
         if(airportQueue.empty() && !unvisited.empty()){ // if explored all elements in connected component, fetch node from other connected component
             int disconnectedNode = *(unvisited.begin());
             airportQueue.push(disconnectedNode);
@@ -110,7 +110,12 @@ vector<int> FlightGraph::BFT(int start){
             }
         }
         airportQueue.pop(); 
+        while (!(airportQueue.empty()) && visited[airportQueue.front()]) {
+            //std::cout << airportQueue.front() << " " << visited[airportQueue.front()] << std::endl;
+            airportQueue.pop();
+        }
     }
+    std::cout << "FREEEEEEEE" << std::endl;
 
 
     return BFSOrder;

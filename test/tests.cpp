@@ -76,6 +76,7 @@ TEST_CASE("Parse Line, simple airport") {
     vector<string> line = f.parseLine("1,\"airport\",\"Chicago\",\"USA\",\"GKA\",\"AYGA\",-6,145,5282,10,\"U\",\"Pacific/Port_Moresby\",\"airport\",\"OurAirports\"");
     vector<string> expected = {"1", "airport", "Chicago", "USA", "GKA", "AYGA", "-6", "145", "5282", "10", "U", "Pacific/Port_Moresby", "airport"};
     REQUIRE(line == expected);
+    REQUIRE(line.size() == 13);
 }
 
 TEST_CASE("Parse Line, simple route") {
@@ -116,9 +117,9 @@ TEST_CASE("BFT works") {
     vector<int> bft3 = f.BFT(3);
     vector<int>expected3 = {3, 1, 4, 2, 5};
     vector<int> bft4 = f.BFT(4);
-    vector<int> expected4 = {4};
+    vector<int> expected4 = {4, 1, 2, 3, 5};
     vector<int> bft5 = f.BFT(5);
-    vector<int> expected5 = {5};
+    vector<int> expected5 = {5, 1, 2, 3, 4};
     REQUIRE(bft1 == expected1);
     REQUIRE(bft2 == expected2);
     REQUIRE(bft3 == expected3);
@@ -134,5 +135,15 @@ TEST_CASE("Betweenness centrality") {
     REQUIRE(nodesize.at(3) == 2);
     REQUIRE(nodesize.at(4) == 0);
     REQUIRE(nodesize.at(5) == 0);
+}
+
+TEST_CASE("Graph Coloring") {
+    FlightGraph f = FlightGraph("graph/shortairports.dat", "graph/shortroutes.dat");
+    std::unordered_map<int, int> colors = graphcoloring(f);
+    REQUIRE(colors.at(1) == 1);
+    REQUIRE(colors.at(2) == 2);
+    REQUIRE(colors.at(3) == 3);
+    REQUIRE(colors.at(4) == 1);
+    REQUIRE(colors.at(5) == 1);
 }
 

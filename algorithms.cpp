@@ -111,7 +111,7 @@ void nodecolorhelper(FlightGraph graph, int curnode, std::unordered_map<int, int
         colorqueue.push((graph.edges[curnode])[i].getDestination());
     }
     for (size_t i = 0; i < graph.edgesbydest[curnode].size(); i++) {
-        colorqueue.push((graph.edges[curnode])[i].getSource());
+        colorqueue.push((graph.edgesbydest[curnode])[i].getSource());
     }
     bool change = 1;
     // initialize current node's color to the lowest value, 1
@@ -163,8 +163,10 @@ std::unordered_map<int, int> graphcoloring(FlightGraph graph) {
     std::cout << "Reached line " << __LINE__ << std::endl;
     vector<int> BFTvec = graph.BFT(1);
     std::cout << "Reached line " << __LINE__ << std::endl;
+    std::cout << "BFTvec size is  " << BFTvec.size() << std::endl;
     for (unsigned i = 0; i < BFTvec.size(); i++) {
         int curnode = BFTvec[i];
+        std::cout << "i =  " << i << std::endl;
         nodecolorhelper(graph, curnode, colorval);
 
     }
