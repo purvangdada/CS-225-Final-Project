@@ -15,6 +15,7 @@
 #include "../graph/flightGraph.h"
 #include "../graph/node.h"
 #include "../graph/edge.h"
+#include "../algorithms.cpp"
 
 using namespace std;
 
@@ -112,12 +113,26 @@ TEST_CASE("BFT works") {
     vector<int> expected1 = {1, 2, 3, 5, 4};
     vector<int> bft2 = f.BFT(2);
     vector<int> expected2 = {2, 1, 3, 5, 4};
+    vector<int> bft3 = f.BFT(3);
+    vector<int>expected3 = {3, 1, 4, 2, 5};
     vector<int> bft4 = f.BFT(4);
     vector<int> expected4 = {4};
     vector<int> bft5 = f.BFT(5);
     vector<int> expected5 = {5};
-    //REQUIRE(bft1 == expected1);
-    REQUIRE(bft5 == expected5);
-    REQUIRE(bft4 == expected4);
+    REQUIRE(bft1 == expected1);
     REQUIRE(bft2 == expected2);
+    REQUIRE(bft3 == expected3);
+    REQUIRE(bft4 == expected4);
+    REQUIRE(bft5 == expected5);
 }
+
+TEST_CASE("Betweenness centrality") {
+    FlightGraph f = FlightGraph("graph/shortairports.dat", "graph/shortroutes.dat");
+    std::unordered_map<int, int> nodesize = betweennesscentrality(f);
+    REQUIRE(nodesize.at(1) == 2);
+    REQUIRE(nodesize.at(2) == 4);
+    REQUIRE(nodesize.at(3) == 2);
+    REQUIRE(nodesize.at(4) == 0);
+    REQUIRE(nodesize.at(5) == 0);
+}
+
