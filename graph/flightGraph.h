@@ -43,6 +43,7 @@ class FlightGraph {
         const int AIRPORT_NAME = 1;
         const int AIRPORT_LONGITUDE = 6;
         const int AIRPORT_LATITUDE = 7;
+
         const int ROUTE_SOURCE = 3;
         const int ROUTE_DESTINATION = 5;
         const int ROUTE_CONNECTING = 7;

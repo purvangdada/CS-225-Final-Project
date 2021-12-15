@@ -45,18 +45,18 @@ int main() {
     std::cout << "Reached line " << __LINE__ << std::endl;
     std::unordered_map<int, int> nodecol = graphcoloring(graph);
     int colnum = 1;
-    for (int i = 1; i <= 14110; i++) {
-        if ((graph.airports).find(i) == (graph.airports).end())
-            continue;
-        if (colnum < nodecol[i])
-            colnum = nodecol[i];
+
+    std::unordered_map<int, Node>::iterator it1;
+    for (it1 = graph.airports.begin(); it1 != graph.airports.end(); it1++) {
+        if (colnum < nodecol[it1 -> first])
+            colnum = nodecol[it1 -> first];
     }
     std::cout << "Reached line " << __LINE__ << std::endl;
     std::unordered_map<int, int> nodesize = betweennesscentrality(graph);
-    for (int i = 1; i <= 14110; i++) {
-        if ((graph.airports).find(i) == (graph.airports).end())
-            continue;
-        for (auto it = (graph.edges[i]).begin(); it != (graph.edges[i]).end(); it++) {    
+
+    std::unordered_map<int, std::vector<Edge>>::iterator it2;
+    for (it2 = graph.edges.begin(); it2 != graph.edges.end(); it2++) {
+        for (auto it = (it2 -> second).begin(); it != (it2 -> second).end(); it++) {    
             int start = it->getSource();
             int end =   it->getDestination();
             int startx = int(10*(graph.airports[start].getLongitude()) + 1800);
@@ -69,16 +69,15 @@ int main() {
         }
     }
     std::cout << "Reached line " << __LINE__ << std::endl;
-    for (int i = 1; i <= 14110; i++) {
-        if ((graph.airports).find(i) == (graph.airports).end())
-            continue;
-        int centerx = int(10*(graph.airports[i].getLongitude()) + 1800);
-        int centery = int(10*(graph.airports[i].getLatitude()) + 900);
-        int radius = 2*nodesize[i];
+    std::unordered_map<int, Node>::iterator it3;
+    for (it3 = graph.airports.begin(); it3 != graph.airports.end(); it3++) {
+        int centerx = int(10*(it3 -> second.getLongitude()) + 1800);
+        int centery = int(10*(it3 -> second.getLatitude()) + 900);
+        int radius = 2*nodesize[it3 -> first];
         double huediff = 360 / (colnum + 1);
-        int fac = (nodecol[i]/2) - 1;
+        int fac = (nodecol[it3 -> first]/2) - 1;
         double hue;
-        if (nodecol[i] % 2 == 0)
+        if (nodecol[it3 -> first] % 2 == 0)
             hue = 180 + fac*huediff;
         else
             hue = fac*huediff;

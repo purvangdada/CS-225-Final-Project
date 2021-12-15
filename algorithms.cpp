@@ -28,10 +28,9 @@ void shortestpathhelper(FlightGraph graph, int sourceid, int destid, std::unorde
     std::unordered_map<int, double> dist;
     std::unordered_map<int, int> prev;
     // initialize all distances to infinity except start, which is zero
-    for (int i = 1; i <= 14110; i++) {
-        if ((graph.airports).find(i) == (graph.airports).end())
-            continue;
-        dist[i] = std::numeric_limits<double>::infinity();
+    std::unordered_map<int, Node>::iterator it;
+    for (it = graph.airports.begin(); it != graph.airports.end(); it++) {
+        dist[it -> first] = std::numeric_limits<double>::infinity();
     }
     dist[sourceid] = 0;
     priority.push(sourceid);
@@ -76,22 +75,18 @@ void shortestpathhelper(FlightGraph graph, int sourceid, int destid, std::unorde
 std::unordered_map<int, int> betweennesscentrality(FlightGraph graph) {
     // initialize each node's betweenness centrality value to zero
     std::unordered_map<int, int> bcval;
-    for (int i = 1; i <= 14110; i++) {
-        if ((graph.airports).find(i) == (graph.airports).end())
-            continue;
-        bcval[i] = 0;
+    std::unordered_map<int, Node>::iterator it;
+    for (it = graph.airports.begin(); it != graph.airports.end(); it++) {
+        bcval[it -> first] = 0;
     }
     // iterate through every pair of nodes to find its shortest path
     // so betweenness centrality values can be increased
-    for (int i = 1; i <= 14110; i++) {
-        if ((graph.airports).find(i) == (graph.airports).end())
-                continue;
-        for (int j = 1; j <= 14110; j++) {
-            if ((graph.airports).find(j) == (graph.airports).end())
-                continue;
-            if (i != j)
-                shortestpathhelper(graph, i, j, bcval);
-                std::cout << "running" << std::endl;
+    std::unordered_map<int, Node>::iterator it1;
+    for (it1 = graph.airports.begin(); it1 != graph.airports.end(); it1++) {
+        std::unordered_map<int, Node>::iterator it2;
+        for (it2 = graph.airports.begin(); it2 != graph.airports.end(); it2++) {
+            if (it1 -> first != it2 -> first)
+                shortestpathhelper(graph, it1 -> first, it2 -> first, bcval);
         }
     }
     return bcval;
@@ -153,10 +148,9 @@ std::unordered_map<int, int> graphcoloring(FlightGraph graph) {
     // initialize color values for every node to zero
     // this is not a valid color value
     std::unordered_map<int, int> colorval;
-    for (int i = 1; i <= 14110; i++) {
-        if ((graph.airports).find(i) == (graph.airports).end())
-            continue;
-        colorval[i] = 0;
+    std::unordered_map<int, Node>::iterator it;
+    for (it = graph.airports.begin(); it != graph.airports.end(); it++) {
+        colorval[it -> first] = 0;
     }
     //will move through nodes and determine curnode using BFS algorithm written by Purvang
     //code needed here...
