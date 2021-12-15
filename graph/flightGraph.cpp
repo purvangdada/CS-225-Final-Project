@@ -6,17 +6,10 @@ using namespace std;
 FlightGraph::FlightGraph(const string &airportData, const string &routeData) {
     airportData_ = airportData;
     routeData_ = routeData;
-    std::unordered_map<int, Node> airports;
-    std::unordered_map<int, std::vector<Edge>> edges;
-    
-    std::unordered_map<int, std::vector<Edge>> edgesbydest;
     initialize();
 }
 
 FlightGraph::FlightGraph() {
-    std::unordered_map<int, Node> airports;
-    std::unordered_map<int, std::vector<Edge>> edges;
-    std::unordered_map<int, std::vector<Edge>> edgesbydest;
 }
 
 /**
@@ -59,20 +52,24 @@ void FlightGraph::parseAirport(vector<string> line) {
     double airportLatitude = atof(line[AIRPORT_LATITUDE].c_str());
     Node airport = Node(airportId, airportName, airportLongitude, airportLatitude);
     airports.insert(pair<int, Node>(airport.getId(), airport));
+    edges.insert(std::pair<int, std::vector<Edge>>(airport.getId(), std::vector<Edge>{}));
+    edgesbydest.insert(std::pair<int, std::vector<Edge>>(airport.getId(), std::vector<Edge>{}));
 }
 
 void FlightGraph::parseRoute(vector<string> line) {
-    if (atoi(line[ROUTE_CONNECTING].c_str()) == 0) {
+    if (atoi(line[ROUTE_CONNECTING].c_str()) == 0 && line[ROUTE_SOURCE] != "\\N" && line[ROUTE_DESTINATION] != "\\N") {
         int source = atoi(line[ROUTE_SOURCE].c_str());
         int destination = atoi(line[ROUTE_DESTINATION].c_str());
         double distance = findDistance(source, destination);
         Edge route(source, destination, distance);
-        
-
         // if the source airport has less than one outgoing route to destination, add it to that airports routes???
         // Basically makes sure that there isn't already a same route
         if (airports[source].getOutgoing().count(destination) < 1) {
             airports[source].addRoute(destination, route);
+            if (edges.find(source) != edges.end()) {
+                edges.at(source).push_back(route);
+                edgesbydest.at(destination).push_back(route);
+            }
         }
     }
 }

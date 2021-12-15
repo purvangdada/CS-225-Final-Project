@@ -97,37 +97,27 @@ TEST_CASE("Reading File, short") {
     FlightGraph graph = FlightGraph("graph/shortairports.dat", "graph/shortroutes.dat");
     REQUIRE(graph.airports.size() == 5);
     REQUIRE(graph.airports.at(2).getOutgoing().size() == 3);
+    REQUIRE(graph.edges.size() == 5);
+    REQUIRE(graph.edges.at(1).size() == 1);
+    REQUIRE(graph.edges.at(2).size() == 3);
+    REQUIRE(graph.edges.at(3).size() == 2);
+    REQUIRE(graph.edges.at(4).size() == 0);
+    REQUIRE(graph.edges.at(5).size() == 0);
 }
 
 TEST_CASE("BFT works") {
-    FlightGraph f = FlightGraph();
-    Node airport1(1, "airport1", 5.0, 5.0);
-    Node airport2(2, "airport2", 10.0, 0.0);
-    Node airport3(3, "airport3", 0.0, 0.0);
-    Node airport4(4, "airport4", 3.0, 20.0);
-    Node airport5(5, "airport5", 5.0, 30.0);
-    f.addAirport(airport1);
-    f.addAirport(airport2);
-    f.addAirport(airport3);
-    f.addAirport(airport4);
-    f.addAirport(airport5);
-    Edge OneToTwo(1, 2);
-    Edge TwoToOne(2, 1);
-    Edge ThreeToOne(3, 1);
-    Edge TwoToThree(2, 3);
-    Edge TwoToFive(2, 5);
-    Edge ThreeToFour(3, 4);
-    f.addRoute(OneToTwo);
-    f.addRoute(TwoToOne);
-    f.addRoute(ThreeToOne);
-    f.addRoute(TwoToThree);
-    f.addRoute(TwoToFive);
-    f.addRoute(ThreeToFour);
-
+    FlightGraph f = FlightGraph("graph/shortairports.dat", "graph/shortroutes.dat");
+    
     vector<int> bft1 = f.BFT(1);
-    vector<int> bft2 = f.BFT(2);
     vector<int> expected1 = {1, 2, 3, 5, 4};
+    vector<int> bft2 = f.BFT(2);
     vector<int> expected2 = {2, 1, 3, 5, 4};
-    REQUIRE(bft1 == expected1);
+    vector<int> bft4 = f.BFT(4);
+    vector<int> expected4 = {4};
+    vector<int> bft5 = f.BFT(5);
+    vector<int> expected5 = {5};
+    //REQUIRE(bft1 == expected1);
+    REQUIRE(bft5 == expected5);
+    REQUIRE(bft4 == expected4);
     REQUIRE(bft2 == expected2);
 }
