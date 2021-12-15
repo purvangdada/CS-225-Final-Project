@@ -81,9 +81,12 @@ std::unordered_map<int, int> betweennesscentrality(FlightGraph graph) {
     }
     // iterate through every pair of nodes to find its shortest path
     // so betweenness centrality values can be increased
+    int i = 0;
     std::unordered_map<int, Node>::iterator it1;
     for (it1 = graph.airports.begin(); it1 != graph.airports.end(); it1++) {
         std::unordered_map<int, Node>::iterator it2;
+        std::cout << "i =  " << i << std::endl;
+        i++;
         for (it2 = graph.airports.begin(); it2 != graph.airports.end(); it2++) {
             if (it1 -> first != it2 -> first)
                 shortestpathhelper(graph, it1 -> first, it2 -> first, bcval);
