@@ -18,6 +18,57 @@
 
 using namespace std;
 
+TEST_CASE("Parse Route, simple") {
+    //2B,410,AER,2965,KZN,2990,,0,CR2
+    FlightGraph f = FlightGraph();
+    Node airport13(13, "airport13", 0.0, 0.0);
+    Node airport29(29, "airport29", 0.0, 10.0);
+    f.addAirport(airport13);
+    f.addAirport(airport29);
+    vector<string> line = {"2B", "410", "AER", "13", "KZN", "29", "", "0", "CR2"};
+    f.parseRoute(line);
+    map<int, Edge> expected;
+    Edge expectedEdge = Edge(13, 29);
+    expected.insert(pair<int, Edge>(13, expectedEdge));
+    REQUIRE(f.airports.at(13).getOutgoing().at(29) == expected.at(13));
+}
+
+TEST_CASE("Parse Route, ignores connecting flights") {
+    //2B,410,AER,2965,KZN,2990,,1,CR2
+    FlightGraph f = FlightGraph();
+    Node airport13(13, "airport13", 0.0, 0.0);
+    Node airport29(29, "airport29", 0.0, 10.0);
+    f.addAirport(airport13);
+    f.addAirport(airport29);
+    vector<string> line = {"2B", "410", "AER", "13", "KZN", "29", "", "1", "CR2"};
+    f.parseRoute(line);
+    REQUIRE(f.airports.at(13).getOutgoing().empty());
+    REQUIRE(f.airports.at(29).getOutgoing().empty());
+}
+
+TEST_CASE("Parse Route, distance equation") {
+    FlightGraph f = FlightGraph();
+    Node airport13(13, "airport13", 0.0, 5.0);
+    Node airport29(29, "airport29", 3.0, 10.0);
+    f.addAirport(airport13);
+    f.addAirport(airport29);
+    vector<string> line = {"2B", "410", "AER", "13", "KZN", "29", "", "0", "CR2"};
+    f.parseRoute(line);
+    //relative error of 5
+    REQUIRE(abs(f.airports.at(13).getOutgoing().at(29).getDistance() - 648.2) < 5);
+}
+
+TEST_CASE("Parse Airport, simple") {
+    //1,"airport","Chicago","USA","GKA","AYGA",-6,145,5282,10,"U","Pacific/Port_Moresby","airport","OurAirports"
+    FlightGraph f = FlightGraph();
+    vector<string> line = {"1", "airport", "Chicago", "USA", "GKA", "AYGA", "-6", "145", "5282", "10", "U", "Pacific/Port_Moresby", "airport", "OurAirports"};
+    f.parseAirport(line);
+    Node expected = Node(1, "airport", -6, 145);
+    REQUIRE(f.airports.at(1) == expected);
+    REQUIRE(f.airports.at(1).getLongitude() == -6);
+    REQUIRE(f.airports.at(1).getLatitude() == 145);
+}
+
 TEST_CASE("BFT works") {
     FlightGraph f = FlightGraph();
     Node airport1(1, "airport1", 5.0, 5.0);

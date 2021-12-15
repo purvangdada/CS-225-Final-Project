@@ -53,13 +53,11 @@ void FlightGraph::parseAirport(vector<string> line) {
     // airport.setName(line[AIRPORT_NAME]);
     // airport.setLatitude(stof(line[AIRPORT_LATITUDE]));
     // airport.setLongitude(stof(line[AIRPORT_LONGITUDE])); 
-
     int airportId = atoi(line[AIRPORT_ID].c_str());
     string airportName = line[AIRPORT_NAME];
     double airportLongitude = atof(line[AIRPORT_LONGITUDE].c_str());
     double airportLatitude = atof(line[AIRPORT_LATITUDE].c_str());
-
-    Node airport(airportId, airportName, airportLongitude, airportLatitude);
+    Node airport = Node(airportId, airportName, airportLongitude, airportLatitude);
     airports.insert(pair<int, Node>(airport.getId(), airport));
 }
 

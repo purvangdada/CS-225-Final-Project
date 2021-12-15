@@ -78,7 +78,7 @@ void Node::setLatitude(double latitude) {
  * Compares two airports
  * @return true if two airports have the same name and id
  */
-bool Node::operator ==(const Node& other) {
+bool Node::operator ==(const Node& other) const {
     
     return (this -> id_ == other.id_ && this -> name_ == other.name_);
 }

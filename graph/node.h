@@ -14,7 +14,7 @@ class Node {
         Node();
         Node(int id, std::string name, double longitude, double latitude);
 
-        bool operator==(const Node& other);
+        bool operator==(const Node& other) const; 
 
         int getId() const;
         std::string getName() const;
