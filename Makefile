@@ -27,7 +27,7 @@ all : $(EXENAME) $(TEST_NAME) $(ANIMATION_NAME)
 $(EXENAME): build/main.o build/graph.o build/node.o build/edge.o
 	$(LD) $^ $(LDFLAGS) -o $@
 
-$(TEST_NAME): build/tests.o build/graph.o build/node.o build/edge.o
+$(TEST_NAME): build/tests.o build/catch.o build/graph.o build/node.o build/edge.o
 	$(LD) $^ $(LDFLAGS) -o $@
 
 $(ANIMATION_NAME): drawandalgorithms.cpp build/graph.o build/node.o build/edge.o build/algorithms.o build/lab_inheritance/PNG.o build/lab_inheritance/circle.o build/lab_inheritance/vector2.o build/lab_inheritance/HSLAPixel.o build/lab_inheritance/shape.o build/lab_inheritance/line.o build/lab_inheritance/lodepng.o
@@ -64,7 +64,10 @@ build/lab_inheritance: build
 build/algorithms.o: algorithms.cpp build/graph.o build/node.o build/edge.o build
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-build/tests.o: catch/catchmain.cpp test/tests.cpp graph/flightGraph.h graph/node.h graph/edge.o build
+build/tests.o: test/tests.cpp build/catch.o graph/flightGraph.h graph/node.h graph/edge.o build
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+build/catch.o: catch/catchmain.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 build/main.o: graph/main.cpp graph/flightGraph.h graph/node.h graph/edge.h build
