@@ -83,6 +83,7 @@ std::unordered_map<int, int> betweennesscentrality(FlightGraph graph) {
         for (int j = 1; j <= 14110; j++) {
             if (i != j)
                 shortestpathhelper(graph, i, j, bcval);
+                std::cout << "running" << std::endl;
         }
     }
     return bcval;

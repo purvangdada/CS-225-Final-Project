@@ -6,6 +6,7 @@ using namespace std;
 FlightGraph::FlightGraph(const string &airportData, const string &routeData) {
     airportData_ = airportData;
     routeData_ = routeData;
+    std::cout << "here2" << std::endl;
     initialize();
 }
 
@@ -19,11 +20,11 @@ FlightGraph::FlightGraph() {
  * @return distance in km between airports
  */ 
 double FlightGraph::findDistance(int source, int destination) const {
+    
     double sourceLat = airports.at(source).getLatitude();
     double sourceLon = airports.at(source).getLongitude();
     double destLat = airports.at(destination).getLatitude();
     double destLon = airports.at(destination).getLongitude();
-
     //convert lat to radians
     double phi1 = sourceLat * M_PI / 180; 
     double phi2 = destLat * M_PI / 180;
@@ -60,15 +61,17 @@ void FlightGraph::parseRoute(vector<string> line) {
     if (atoi(line[ROUTE_CONNECTING].c_str()) == 0 && line[ROUTE_SOURCE] != "\\N" && line[ROUTE_DESTINATION] != "\\N") {
         int source = atoi(line[ROUTE_SOURCE].c_str());
         int destination = atoi(line[ROUTE_DESTINATION].c_str());
-        double distance = findDistance(source, destination);
-        Edge route(source, destination, distance);
-        // if the source airport has less than one outgoing route to destination, add it to that airports routes???
-        // Basically makes sure that there isn't already a same route
-        if (airports[source].getOutgoing().count(destination) < 1) {
-            airports[source].addRoute(destination, route);
-            if (edges.find(source) != edges.end()) {
-                edges.at(source).push_back(route);
-                edgesbydest.at(destination).push_back(route);
+        if (airports.find(source) != airports.end() && airports.find(destination) != airports.end()) {
+            double distance = findDistance(source, destination);
+            Edge route(source, destination, distance);
+            // if the source airport has less than one outgoing route to destination, add it to that airports routes???
+            // Basically makes sure that there isn't already a same route
+            if (airports[source].getOutgoing().count(destination) < 1) {
+                airports[source].addRoute(destination, route);
+                if (edges.find(source) != edges.end() && edgesbydest.find(destination) != edgesbydest.end()) {
+                    edges.at(source).push_back(route);
+                    edgesbydest.at(destination).push_back(route);
+                }
             }
         }
     }
@@ -156,7 +159,9 @@ vector<string> FlightGraph::parseLine(const string &line) {
  */
 void FlightGraph::initialize() {
     initializeAirports();
+    std::cout << "here2" << std::endl;
     initializeRoutes();
+    std::cout << "here2" << std::endl;
 }
 
 /**
