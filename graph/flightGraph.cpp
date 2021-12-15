@@ -78,10 +78,12 @@ void FlightGraph::parseRoute(vector<string> line) {
 }
 
 vector<int> FlightGraph::BFT(int start){
-    vector<bool> visited(airports.size()); // to keep track of visited nodes
+    std::unordered_map<int, bool> visited; // to keep track of visited nodes
     set<int> unvisited = {}; // to keep track of completely disconnected nodes
 
-    for (unsigned i = 0; i < airports.size(); i++) { // set all nodes to non visted yet
+    for (int i = 1; i <= 14110; i++) { // set all nodes to non visted yet
+        if (airports.find(i) == airports.end())
+            continue;
         visited[i] = false;
         unvisited.insert(i);
     }
