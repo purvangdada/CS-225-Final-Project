@@ -41,8 +41,8 @@ class FlightGraph {
         // These constants are for where in line the values are
         const int AIRPORT_ID = 0;
         const int AIRPORT_NAME = 1;
-        const int AIRPORT_LONGITUDE = 6;
-        const int AIRPORT_LATITUDE = 7;
+        const int AIRPORT_LONGITUDE = 7;
+        const int AIRPORT_LATITUDE = 6;
 
         const int ROUTE_SOURCE = 3;
         const int ROUTE_DESTINATION = 5;

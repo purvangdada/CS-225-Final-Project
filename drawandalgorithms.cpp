@@ -41,7 +41,7 @@ int main() {
     std::vector<Drawable*> circles;
     std::cout << "Reached line " << __LINE__ << std::endl;
     HSLAPixel linecolor(0, 1, 0);
-    canvas.resize(3600, 1800);
+    canvas.resize(3640, 1820);
     std::cout << "Reached line " << __LINE__ << std::endl;
     std::unordered_map<int, int> nodecol = graphcoloring(graph);
     int colnum = 1;
@@ -52,17 +52,17 @@ int main() {
             colnum = nodecol[it1 -> first];
     }
     std::cout << "Reached line " << __LINE__ << std::endl;
-    std::unordered_map<int, int> nodesize = betweennesscentrality(graph);
+  //  std::unordered_map<int, int> nodesize = betweennesscentrality(graph);
 
     std::unordered_map<int, std::vector<Edge>>::iterator it2;
     for (it2 = graph.edges.begin(); it2 != graph.edges.end(); it2++) {
         for (auto it = (it2 -> second).begin(); it != (it2 -> second).end(); it++) {    
             int start = it->getSource();
             int end =   it->getDestination();
-            int startx = int(10*(graph.airports[start].getLongitude()) + 1800);
-            int starty = int(10*(graph.airports[start].getLatitude()) + 900);
-            int endx = int(10*(graph.airports[end].getLongitude()));
-            int endy = int(10*(graph.airports[end].getLatitude()));
+            int startx = int(10*((graph.airports[start].getLongitude()) + 180) + 20);
+            int starty = int(10*((graph.airports[start].getLatitude()) + 90) + 10);
+            int endx = int(10*((graph.airports[end].getLongitude()) + 180));
+            int endy = int(10*((graph.airports[end].getLatitude()) + 90));
             Drawable* line = new Line(Vector2(startx, starty), Vector2(endx, endy), linecolor);
             lines.push_back(line);
             std::cout << "running betweeness" << std::endl;
@@ -71,9 +71,9 @@ int main() {
     std::cout << "Reached line " << __LINE__ << std::endl;
     std::unordered_map<int, Node>::iterator it3;
     for (it3 = graph.airports.begin(); it3 != graph.airports.end(); it3++) {
-        int centerx = int(10*(it3 -> second.getLongitude()) + 1800);
-        int centery = int(10*(it3 -> second.getLatitude()) + 900);
-        int radius = 2*nodesize[it3 -> first];
+        int centerx = int(10*((it3 -> second.getLongitude()) + 180) + 20);
+        int centery = int(10*((it3 -> second.getLatitude()) + 90) + 10);
+        int radius = 5;//*nodesize[it3 -> first];
         double huediff = 360 / (colnum + 1);
         int fac = (nodecol[it3 -> first]/2) - 1;
         double hue;
