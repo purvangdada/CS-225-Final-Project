@@ -13,7 +13,7 @@
 #include "graph/flightGraph.h"
 #include "graph/node.h"
 #include "graph/edge.h"
-#include "algorithms.cpp"
+#include "algorithms.h"
 
 #include "lab_inheritance/PNG.h"
 #include "lab_inheritance/HSLAPixel.h"
@@ -31,6 +31,7 @@
 
 using cs225::PNG;
 using cs225::HSLAPixel;
+using std::vector;
 
 int main() {
     FlightGraph graph("graph/airports.dat", "graph/routes.dat");

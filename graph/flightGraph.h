@@ -25,6 +25,9 @@ class FlightGraph {
         std::unordered_map<int, std::vector<Edge> > edges;
         // this last map is USED ONLY FOR GRAPH COLORING, stores all the edges a node is the destination of
         std::unordered_map<int, std::vector<Edge> > edgesbydest;
+
+        // Algorithms
+        std::vector<int> BFT(int start);
     private:
 
         double findDistance(int source, int destination) const; 
@@ -43,7 +46,6 @@ class FlightGraph {
         const int ROUTE_DESTINATION = 5;
         const int ROUTE_CONNECTING = 6;
         void parseRoute(std::vector<std::string> line);
-        std::vector<int> BFT(int start);
 
         // Converts one line of csv into a vector of strings to be used in functions
         std::vector<std::string> parseLine(const std::string &line);

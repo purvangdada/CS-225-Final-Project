@@ -14,6 +14,8 @@
 #include "graph/node.h"
 #include "graph/edge.h"
 
+using std::vector;
+
 // helper function for betweenness centrality
 // finds the shortest path between two nodes
 // then increments the betweenness centrality value for each airport
@@ -39,7 +41,7 @@ void shortestpathhelper(FlightGraph graph, int sourceid, int destid, std::unorde
         priority.pop();
         if (curnode != destid){
             // for each adjacent airport
-            for (int i = 0; i < graph.edges[curnode].size(); i++) {
+            for (size_t i = 0; i < graph.edges[curnode].size(); i++) {
                 neighbor = (graph.edges[curnode])[i].getDestination();
                 double newdist = (graph.edges[curnode])[i].getDistance() + dist[curnode];
                 // if the current route is shorter than whatever previous route distance was found
@@ -78,7 +80,7 @@ std::unordered_map<int, int> betweennesscentrality(FlightGraph graph) {
     // iterate through every pair of nodes to find its shortest path
     // so betweenness centrality values can be increased
     for (int i = 1; i <= 14110; i++) {
-        for (int j = 1; i <= 14110; j++) {
+        for (int j = 1; j <= 14110; j++) {
             if (i != j)
                 shortestpathhelper(graph, i, j, bcval);
         }
@@ -96,10 +98,10 @@ void nodecolorhelper(FlightGraph graph, int curnode, std::unordered_map<int, int
     // initialize queue of all neighboring nodes
     std::queue<int> colorqueue;
     std::queue<int> tempcolorqueue;
-    for (int i = 0; i < graph.edges[curnode].size(); i++) {
+    for (size_t i = 0; i < graph.edges[curnode].size(); i++) {
         colorqueue.push((graph.edges[curnode])[i].getDestination());
     }
-    for (int i = 0; i < graph.edgesbydest[curnode].size(); i++) {
+    for (size_t i = 0; i < graph.edgesbydest[curnode].size(); i++) {
         colorqueue.push((graph.edges[curnode])[i].getSource());
     }
     bool change = 1;
@@ -145,10 +147,10 @@ std::unordered_map<int, int> graphcoloring(FlightGraph graph) {
     for (int i = 1; i <= 14110; i++) {
         colorval[i] = 0;
     }
-    int curnode;
+    int curnode = 0;
     //will move through nodes and determine curnode using BFS algorithm written by Purvang
     //code needed here...
-    vector<int> BFTvec = BFT(curnode);
+    vector<int> BFTvec = graph.BFT(curnode);
     for (unsigned i = 0; i < BFTvec.size(); i++) {
         nodecolorhelper(graph, curnode, colorval);
 
